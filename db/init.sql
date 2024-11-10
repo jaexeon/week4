@@ -20,7 +20,8 @@ CREATE TABLE comment_table (
     comment_parent_post_id INT NOT NULL,
     comment_user VARCHAR(40) NOT NULL,
     comment_password VARCHAR(100) NOT NULL,
-    comment_content VARCHAR(1000) NOT NULL
+    comment_content VARCHAR(1000) NOT NULL,
+    comment_date DATETIME NOT NULL
 ) DEFAULT CHARSET=UTF8;
 
 INSERT INTO post_table(post_user, post_password, post_title, post_content, post_is_secret, post_date) VALUES('Anonymous', '1234', 'example_title', 'example_content', 0, now());
