@@ -1,0 +1,36 @@
+#container {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+}
+#auth {
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+}
+h2 {
+    margin: 0;
+    font-size: 50px;
+}
+form {
+    margin-top: 15%;
+}
+
+input {
+    font-size: 1em;
+    height: 30px;
+    margin-top: 20px;
+}
+
+#auth_btn {
+    background-color: cadetblue;
+    border: 2px solid cadetblue;
+    color: white;
+    width: 100%;
+}
+#auth_btn:hover {
+    background-color: white;
+    color: cadetblue;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css' )}}">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'header.html'%}
+
+    <div id="top">
+        <div id="list">
+            <div class="list_child" id="auth">
+            {% if not session['user_name'] %}
+                <button id="loginBtn" onclick="location.href='/login'">로그인</button><button id="joinBtn" onclick="location.href='/join'">회원가입</button><br>
+                {% else %}
+                <button id="logoutBtn" onclick="location.href='/logout'">로그아웃</button><br>
+            {% endif %}
+            </div>
+
+            {% if not post_info %}
+            게시글이 없음!<br>
+            {% else %}
+            <div id="board" class="list_child">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="id">번호</th>
+                            <th class="title">제목</th>
+                            <th class="user">글쓴이</th>
+                            <th class="date">날짜</th>
+                            <th class="view">조회수</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in post_info %}
+                        <tr>
+                            <td class="id">{{row['post_id']}}</td>
+                            <td class="title">{% if row['post_is_secret'] %}🔒{%else%}💬{% endif %}<a href="/board/view/{{row['post_id']}}">{{row['post_title']}}</a></td>
+                            <td class="user">{{row['post_user']}}</td>
+                            <td class="date">{{row['post_date']}}</td>
+                            <td class="view">{{row['post_view_cnt']}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% endif %}
+            <div id="write" class="list_child">
+                <button onclick="location.href='/board/write'">글 쓰러 가기</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

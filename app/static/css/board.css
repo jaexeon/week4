@@ -1,0 +1,128 @@
+#top {
+    font-size: 1.2em;
+    display: flex;
+    justify-content:center;
+}
+#wrapper {
+    width: 60vw;
+}
+#main {
+    width: inherit;
+}
+#detail {
+    justify-content: space-between;
+    display: flex;
+    font-size: 0.8em;
+}
+#detail_left {
+    display: flex;
+}
+
+#user {
+    margin-right: 10px;
+}
+#date {
+    border-left: 1px solid gray;
+    padding-left: 10px;
+    margin-right: 10px;
+}
+#content {
+    font-size: 0.8em;
+    margin-top: 10px;
+    padding-top: 20px;
+    border-top: 1px solid;
+    /* white-space:pre;
+    word-break: break-all; */
+}
+
+#btn_mid {
+    margin-top: 10px;
+    display: flex;
+    justify-content: end;
+}
+
+.btn_mid {
+    font-size: 1em;
+    margin: 5px;
+}
+
+#comment_head {
+    font-size: 0.8em;
+    margin-top: 30px;
+    border-bottom: 1px solid;
+}
+
+#comment_body {
+    font-size: 0.8em;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid gray;
+}
+#comment_content {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#mdf_btn {
+    background-color: white;
+    border: 1px solid;
+    color:cadetblue;
+}
+#mdf_btn:hover {
+    background-color: cadetblue;
+    color: white;
+}
+
+#rm_btn {
+    background-color: white;
+    border: 1px solid;
+    color:firebrick;
+}
+#rm_btn:hover {
+    background-color: firebrick;
+    color:white;
+}
+
+#cmt_rm_btn {
+    background-color: white;
+    border: 1px solid;
+    color: gray;
+    margin-top: 5px;
+}
+#cmt_rm_btn:hover {
+    background-color: gray;
+    color: white;
+}
+
+#write_comment {
+    margin-bottom: 10px;
+    border-top: 1px solid;
+    padding-top: 10px;
+}
+#comment_insert_top > input {
+    width: 20%;
+}
+
+#write_comment textarea {
+    margin-top: 10px;
+    width: 100%;
+    height: 100px;
+}
+
+#add_btn_div {
+    display: flex;
+    justify-content: end;
+}
+
+#add_btn {
+    background-color:white;
+    color:cadetblue;
+    border: 1px solid;
+    width: 10%;
+    height: 30px;
+    font-size: 1em;
+}
+#add_btn:hover {
+    background-color: cadetblue;
+    color: white;
+}

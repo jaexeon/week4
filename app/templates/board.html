@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/board.css')}}">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'header.html'%}
+    <div id="top">
+        <div id="wrapper">
+            <div id="main">
+                <div id="title">
+                    {% if post_info['post_is_secret'] %}🔒{%else%}💬{% endif %}{{post_info['post_title']}}
+                </div>
+                <div id="detail">
+                    <div id="detail_left">
+                        <div id="user">
+                            {{post_info['post_user']}}
+                        </div>
+                        <div id="date">
+                            {{post_info['post_date']}}
+                        </div>
+                    </div>
+                    <div id="view">
+                        조회 {{post_info['post_view_cnt']}}
+                    </div>
+                </div>
+                <div id="content">
+                    {{post_info['post_content']}}
+                </div>
+            </div>
+    
+            <div id="btn_mid">
+                <button class="btn_mid" id="mdf_btn" onclick="gotoModify()">글 수정</button><button class="btn_mid" id="rm_btn" onclick="gotoDelete()">글 삭제</button><br>
+            </div>
+        
+            <div id="comment_head">
+                댓글
+            </div>
+            {% for comment in comment_list %}
+            <div id="comment_body">
+                <div id="comment_text">
+                    <div id="comment_detail">
+                        {{comment['comment_user']}} | {{comment['comment_date']}}
+                    </div>
+                    <div id="comment_content">
+                        {{comment['comment_content']}}
+                    </div>
+                </div>
+                <div id="comment_btn">
+                    <button id="cmt_rm_btn" onclick=location.href='/board/delete_comment/{{comment["comment_id"]}}'>삭제</button>
+                    <form action="/board/delete_comment/{{comment['comment_id']}}" method="POST">
+                    </form>
+                    <br>
+                </div>
+            </div>
+            {% endfor %}
+            <div id="write_comment">
+                <form action="/board/write_comment/{{post_info['post_id']}}" method="post">
+                    {% if not session['user_name'] %}
+                    <div id="comment_insert_top">
+                        <input type="text" name="comment_user" value="Anonymous" placeholder="이름">
+                        <input type="password" name="comment_password" placeholder="비밀번호">
+                    </div>
+                    {% endif %}
+                    <div>
+                        <textarea name="comment_content"></textarea>
+                    </div>
+                    <div id="add_btn_div">
+                        <input id="add_btn" type="submit" value="등록">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function gotoModify() {
+            location.href="/board/modify/{{post_info['post_id']}}";
+        }
+        function gotoDelete() {
+            location.href="/board/delete/{{post_info['post_id']}}";
+        }
+        // function gotoCommentDelete(comment_id) {
+        //     location.href=`/board/delete_comment/${comment_id}`;
+        // }
+    </script>
+</body>
+</html> 

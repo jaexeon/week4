@@ -1,0 +1,65 @@
+#top {
+    display: flex;
+}
+#list {
+    /* display: inline-flex; */
+    margin: 0 auto;
+}
+.list_child {
+    display: flex;
+}
+#auth {
+    margin-bottom: 5px;
+    justify-content: end;
+}
+table {
+    border-collapse : collapse;
+    border-top: 1px solid;
+    border-bottom:1px solid;
+    width: 60vw;
+    text-align: center;
+}
+thead {
+    margin: 0;
+}   
+tbody .title {
+    text-align:start;
+}
+tbody td{
+    font-size:1.2em;
+    border-top: 1px solid gray;
+}
+tbody a:visited {
+    color: #770088;
+}
+tbody a:hover {
+    text-decoration: underline;
+}
+.id {
+    width: 10%;
+}
+.user {
+    width: 10%;
+}
+.date {
+    width: 20%;
+}
+.view {
+    width: 6%;
+}
+#write {
+    justify-content: end;
+    align-items: end;
+    margin-top: 5px;
+}
+button {
+    font-size: 1em;
+    background-color: white;
+    color:cadetblue;
+    border: 1px solid;
+    margin: 5px;
+}
+button:hover {
+    background-color: cadetblue;
+    color: white;
+}

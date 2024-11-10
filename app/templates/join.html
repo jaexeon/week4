@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/auth.css')}}">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'header.html' %}
+    <div id="container">
+        <div id="auth">
+            <h2>Join</h2>
+            <form method="post">
+                <input type="text" name="inserted_user" placeholder="이름"><br>
+                <input type="password" name="inserted_password" placeholder="비밀번호" pattern="^[a-zA-Z0-9~!@#$%^&*_-]{8,}$" title="hello"><br>
+                <input type="submit" id="auth_btn" value="Join">
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

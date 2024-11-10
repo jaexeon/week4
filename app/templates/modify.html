@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/write.css')}}">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'header.html' %}
+    <div id="container">
+        <div id="main">
+            <form method="post">
+                <div id="title">
+                    <input type="text" name="inserted_title" placeholder="제목" value="{{post_info['post_title']}}">
+                </div>
+                <div id="content">
+                    <textarea cols="60" rows="10" name="inserted_content" placeholder="내용">{{post_info['post_content']}}</textarea>
+                </div>
+                <div id="is_secret">
+                    <input type="checkbox" name="is_secret_post" value="secret" checked="{{post_info['post_is_secret']}}">비밀 글
+                </div>
+                <div id="btn">
+                    <button type="reset" onclick="location.href='/'" class="btn">취소</button><button type="submit" class="btn">등록</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

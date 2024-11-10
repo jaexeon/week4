@@ -1,0 +1,22 @@
+services:
+  app:
+    container_name: week4_app
+    build:
+      context: ./app
+      dockerfile: ./Dockerfile
+    ports:
+      - 5000:5000
+    restart: always
+    depends_on:
+      - db
+  db:
+    container_name: week4_db
+    image: mysql
+    ports:
+      - 3307:3306
+    volumes:
+      - ./db/:/docker-entrypoint-initdb.d/
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: week4
+    restart: always
