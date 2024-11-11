@@ -6,6 +6,8 @@ services:
       dockerfile: ./Dockerfile
     ports:
       - 5000:5000
+    environment:
+      TZ: Asia/Seoul
     restart: always
     depends_on:
       - db
@@ -19,4 +21,5 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 1234
       MYSQL_DATABASE: week4
+      TZ: Asia/Seoul
     restart: always
